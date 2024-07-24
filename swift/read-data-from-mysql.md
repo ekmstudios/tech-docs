@@ -4,13 +4,13 @@
 
 To display data from a MySQL database in a SwiftUI app using PHP, you'll need to follow these steps:
 
-Set up the MySQL database: Ensure your MySQL database and tables are set up.
-Create a PHP script to fetch data from the database: This script will query the database and return the data in a JSON format.
-Make a network request from SwiftUI: Use URLSession to fetch data from the PHP script.
-Parse the JSON data and display it in the SwiftUI view.
+- **Set up the MySQL database** - Ensure your MySQL database and tables are set up.
+- **Create a PHP script to fetch data from the database** - This script will query the database and return the data in a JSON format.
+- **Create a network request from SwiftUI** - Use URLSession to fetch data from the PHP script.
+- **Parse the JSON data and display it in the SwiftUI view**
 
 
-Step 1: Set Up the MySQL Database
+## Set Up the MySQL Database
 Assume you have a MySQL database named my_database and a table named users with the following schema:
 
 ```
@@ -23,7 +23,7 @@ CREATE TABLE users (
 ```
 
 
-Step 2: Create a PHP Script to Fetch Data
+## Create a PHP Script to Fetch Data
 Create a PHP script named fetch_users.php to query the database and return the data in JSON format.
 
 ```
@@ -60,12 +60,13 @@ $conn->close();
 ```
 
 
-Step 3: Make a Network Request from SwiftUI
+## Create a Network Request from SwiftUI
+
 In your SwiftUI app, create a function to fetch the data from the PHP script using URLSession.
 
-Models and ViewModel
+### Models and ViewModel
 
-First, create a model to represent the user data and a ViewModel to manage fetching data.
+- First, create a model to represent the user data and a ViewModel to manage fetching data.
 
 ```
 import SwiftUI
@@ -104,9 +105,9 @@ class UserViewModel: ObservableObject {
 }
 ```
 
-SwiftUI View
+### SwiftUI View
 
-Now, create a SwiftUI view to display the fetched data.
+- Now, create a SwiftUI view to display the fetched data.
 
 
 ```
@@ -144,16 +145,19 @@ struct MyApp: App {
 ```
 
 
-Explanation
-PHP Script (fetch_users.php):
+## Explanation
 
-Database Connection: Establishes a connection to the MySQL database.
-Data Fetching: Executes a SQL query to fetch all user records.
-JSON Encoding: Encodes the fetched data as a JSON array and prints it.
-SwiftUI App:
-
-
-Model: Defines a User struct that conforms to Codable and Identifiable.
-ViewModel: Defines a UserViewModel class that fetches data from the PHP script and publishes it to the view.
-Networking: Uses URLSession to fetch data from the PHP script and decodes the JSON response.
-
+- **PHP Script (fetch_users.php)**
+    - **Database Connection** - Establishes a connection to the MySQL database.
+    - **Data Fetching** - Executes a SQL query to fetch all user records.
+    - **JSON Encoding** - Encodes the fetched data as a JSON array and prints it.
+- **SwiftUI App**
+    - **Model** - Defines a User struct that conforms to Codable and Identifiable.
+    - **ViewModel** - Defines a UserViewModel class that fetches data from the PHP script and publishes it to the view.
+    - **Networking** - Uses URLSession to fetch data from the PHP script and decodes the JSON response.
+    - **View** - A List view displays the fetched user data. The onAppear modifier calls the fetchUsers function when the view appears.
+- **Networking and JSON Decoding**
+    - **URLSession** - Configures a GET request to fetch data from the PHP script.
+JSONDecoder: Decodes the JSON response into an array of User objects.
+DispatchQueue: Updates the published users property on the main thread to ensure UI updates are performed correctly.
+Replace "https://yourserver.com/fetch_users.php" with the actual URL where your PHP script is hosted. This setup ensures your SwiftUI app can fetch and display data from a MySQL database using a PHP backend.
