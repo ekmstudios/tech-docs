@@ -1,0 +1,22 @@
+title: My Sample Site
+description: A sample GitHub Pages site with left navigation
+baseurl: ""
+url: "https://yourusername.github.io"
+
+# Navigation items
+navigation:
+  - name: Home
+    link: /
+  - name: About
+    link: /about/
+  - name: Services
+    link: /services/
+  - name: Blog
+    link: /blog/
+  - name: Contact
+    link: /contact/
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
