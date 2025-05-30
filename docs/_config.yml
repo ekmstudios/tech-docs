@@ -8,7 +8,7 @@ navigation:
   - name: Home
     link: /
   - name: About
-    link: about.md
+    link: /about/
   - name: Services
     link: /services/
   - name: Blog
