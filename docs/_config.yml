@@ -1,7 +1,7 @@
 title: My Sample Site
 description: A sample GitHub Pages site with left navigation
-baseurl: ""
-url: "https://yourusername.github.io"
+baseurl: "/ekmstudios/tech-docs"
+url: "https://github.com"
 
 # Navigation items
 navigation:
